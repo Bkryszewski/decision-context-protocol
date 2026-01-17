@@ -81,6 +81,7 @@ An agent proposes a transfer action:
     }
   }
 }
+```json
 
 ```markdown
 ##Summary
