@@ -17,6 +17,9 @@ Decision Context Protocol (DCP).
 DCP specifies how autonomous intent MUST be evaluated prior to execution
 by systems that own the effects of an action.
 
+Architectural context for this specification is defined in
+[Figure 1–3](../architecture.md).
+
 ---
 
 ## 2. Protocol Role
