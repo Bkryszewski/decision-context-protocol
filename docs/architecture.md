@@ -11,6 +11,9 @@
 
 ## Layered Architecture
 
+<img width="956" height="506" alt="image" src="https://github.com/user-attachments/assets/804329f9-1685-470c-9503-86788d23d966" />
+
+
 **Figure 1** illustrates the architectural position of Decision Context Protocol (DCP)
 within an enterprise agentic system.
 
