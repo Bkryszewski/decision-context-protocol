@@ -82,8 +82,7 @@ An agent proposes a transfer action:
   }
 }
 
----
-
+```markdown
 ##Summary
 
 The system evaluates this request before invoking any execution APIs.
