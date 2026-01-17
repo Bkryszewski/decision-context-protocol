@@ -193,6 +193,151 @@ Avoid the following:
 
 ---
 
+## Quick Start — Minimal DCP Integration (10 Minutes)
+
+This section provides a minimal, end-to-end walkthrough for integrating
+Decision Context Protocol (DCP) into an existing system.
+
+This guidance is **non-normative** and intended to accelerate adoption.
+
+---
+
+### Step 1 — Identify the Decision Boundary
+
+Identify where autonomous intent transitions into execution.
+
+Typical examples include:
+- Financial transactions
+- System configuration changes
+- Data access or mutation
+- Regulatory or safety-relevant actions
+
+DCP should be invoked **immediately before execution** and **after intent formation**.
+
+---
+
+### Step 2 — Define a DCP Evaluation Endpoint
+
+Expose a DCP evaluation interface owned by the system of record.
+
+Example (conceptual REST endpoint):
+
+
+Responsibilities of this endpoint:
+- Accept a DCP request
+- Evaluate policy and context
+- Return a DCP decision
+- Emit a decision record
+
+---
+
+### Step 3 — Construct a DCP Request
+
+When an agent proposes an action, construct a DCP request
+using the published schema.
+
+Minimal required fields:
+- `action`
+- `actor_identity`
+- `execution_identity`
+- `context`
+
+Example request:
+
+```json
+{
+  "action": {
+    "verb": "update",
+    "resource": "customer-record"
+  },
+  "actor_identity": "agent.support.assistant",
+  "execution_identity": "svc.customer.write",
+  "context": {
+    "signals": {
+      "confidence": 0.88,
+      "risk_level": "low"
+    }
+  }
+}
+```
+markdown
+## Step 4 — Evaluate Policy and Context
+
+Within the DCP evaluation endpoint:
+
+Apply policy rules
+
+Assess contextual signals
+
+Determine execution eligibility
+
+Policy logic may be implemented using:
+
+OPA / Rego
+
+ABAC frameworks
+
+Rules engines
+
+Domain-specific evaluators
+
+Step 5 — Return a DCP Decision
+
+Return one of the supported DCP outcomes:
+
+ALLOW
+
+DENY
+
+ESCALATE
+
+CONSTRAIN
+
+Example response:
+```json
+{
+  "decision": "ALLOW",
+  "decision_id": "dec-9f82a1",
+  "valid_until": "2026-01-18T18:30:00Z"
+}
+```
+markdown
+
+##Execution MUST NOT proceed without a valid decision.
+
+Step 6 — Enforce the Decision
+
+Execution logic MUST:
+
+Proceed only on ALLOW or CONSTRAIN
+
+Enforce any constraints programmatically
+
+Halt execution on DENY
+
+Trigger escalation workflows on ESCALATE
+
+Tool invocation (e.g., via MCP) occurs only after authorization.
+
+Step 7 — Record the Decision
+
+Persist a decision record for auditability.
+
+At minimum, record:
+
+The full DCP request
+
+The decision response
+
+Policy version applied
+
+Timestamp and validity window
+
+Decision records SHOULD be immutable and replay-protected.
+
+Quick Start Complete
+
+
 ## Final Summary
 
 DCP enables scalable autonomy by making decision authority explicit,
