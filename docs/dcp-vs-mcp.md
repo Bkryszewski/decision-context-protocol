@@ -5,7 +5,8 @@
 [Home](index.md) ·
 [Specification](specification.md) ·
 [Architecture](architecture.md) ·
-[Examples](examples.md confirmed) ·
+[DCP vs MCP](dcp-vs-mcp.md) ·
+[Examples](examples.md) ·
 [Governance](governance.md)
 
 </div>
