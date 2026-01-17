@@ -82,9 +82,9 @@ An agent proposes a transfer action:
   }
 }
 
-The system evaluates this request before invoking any execution APIs.
-
 ---
+
+The system evaluates this request before invoking any execution APIs.
 
 Handling Decision Outcomes
 
