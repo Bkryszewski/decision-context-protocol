@@ -261,39 +261,31 @@ Example request:
 }
 ```
 
-## Step 4 — Evaluate Policy and Context
+### Step 4 — Evaluate Policy and Context
 
 Within the DCP evaluation endpoint:
 
-Apply policy rules
+- Apply policy rules
 
-Assess contextual signals
+- Assess contextual signals
 
-Determine execution eligibility
+- Determine execution eligibility
+  
+---
 
-Policy logic may be implemented using:
+### Step 5 — Return a DCP Decision
 
-OPA / Rego
+Supported outcomes:
 
-ABAC frameworks
+- ALLOW
 
-Rules engines
+- DENY
 
-Domain-specific evaluators
+- ESCALATE
 
-Step 5 — Return a DCP Decision
+- CONSTRAIN
 
-Return one of the supported DCP outcomes:
-
-ALLOW
-
-DENY
-
-ESCALATE
-
-CONSTRAIN
-
-Example response:
+Example:
 ```json
 {
   "decision": "ALLOW",
@@ -302,46 +294,53 @@ Example response:
 }
 ```
 
-##Execution MUST NOT proceed without a valid decision.
+Execution MUST NOT proceed without a valid decision.
 
-Step 6 — Enforce the Decision
+---
+
+### Step 6 — Enforce the Decision
 
 Execution logic MUST:
 
-Proceed only on ALLOW or CONSTRAIN
+- Proceed only on ALLOW or CONSTRAIN
 
-Enforce any constraints programmatically
+- Enforce constraints programmatically
 
-Halt execution on DENY
+- Halt execution on DENY
 
-Trigger escalation workflows on ESCALATE
+- Trigger escalation workflows on ESCALATE
 
-Tool invocation (e.g., via MCP) occurs only after authorization.
+- Tool invocation (e.g., via MCP) occurs only after authorization.
 
-Step 7 — Record the Decision
+---
+
+### Step 7 — Record the Decision
 
 Persist a decision record for auditability.
 
 At minimum, record:
 
-The full DCP request
+- Full DCP request
 
-The decision response
+- Decision response
 
-Policy version applied
+- Policy version applied
 
-Timestamp and validity window
+- Timestamp and validity window
 
 Decision records SHOULD be immutable and replay-protected.
 
-Quick Start Complete
+---
 
+### Final Summary
 
-## Final Summary
+DCP enables scalable autonomy by making decision authority:
 
-DCP enables scalable autonomy by making decision authority explicit,
-auditable, and system-owned.
+- Explicit
 
-Successful implementations treat DCP as a **first-class architectural
-boundary**, not an afterthought.
+- Auditable
+
+- System-owned
+
+Successful implementations treat DCP as a first-class architectural boundary, not an afterthought.
 
