@@ -11,11 +11,12 @@
 
 ## 1. Scope
 
-This document defines the **normative protocol semantics** for
+This specification defines the **normative protocol semantics** for
 Decision Context Protocol (DCP).
 
-DCP specifies how autonomous intent MUST be evaluated prior to execution
-by systems that own the effects of an action.
+DCP defines a pre-execution decision evaluation interaction by which
+a system **MUST** determine whether a proposed autonomous action
+is authorized to execute under current policy and context.
 
 Architectural context for this specification is defined in
 [Figure 1–3](../architecture.md).
@@ -24,47 +25,69 @@ Architectural context for this specification is defined in
 
 ## 2. Protocol Role
 
-DCP operates at the decision boundary between:
+DCP operates at the decision boundary between agent reasoning systems
+and systems that own execution authority.
 
-- Agent reasoning systems
-- Systems of record that own execution authority
-
-DCP does not define:
+DCP **MUST NOT** define:
 - Agent planning algorithms
 - Tool invocation mechanics
-- Model architectures
+- Model architectures or training
+
+DCP **MUST** be invoked prior to execution when an agent proposes
+an action that would mutate system state.
 
 ---
 
 ## 3. Conformance Language
 
-The key words **MUST**, **MUST NOT**, **SHOULD**, and **MAY** are to be
-interpreted as described in RFC 2119.
+The key words **MUST**, **MUST NOT**, **SHOULD**, and **MAY**
+are to be interpreted as described in RFC 2119.
+
+All requirements expressed using these terms are normative
+unless explicitly labeled as informative.
 
 ---
 
 ## 4. Decision Context Request
 
-A DCP request MUST include:
+A DCP request **MUST** represent a single proposed action.
 
-1. Proposed action descriptor
-2. Originating actor identity
-3. Execution identity
-4. Context bundle
-5. Temporal validity
+A DCP request **MUST** include:
+
+1. A proposed action descriptor
+2. An originating actor identity
+3. An execution identity under which the action would occur
+4. A context bundle sufficient for evaluation
+5. A temporal scope defining validity expectations
+
+A DCP request **MAY** include additional contextual signals
+such as confidence, uncertainty, or risk indicators.
 
 ---
 
 ## 5. Decision Outcomes
 
-A DCP evaluation MUST return one of:
+A DCP evaluation **MUST** return exactly one of the following outcomes:
 
-- **ALLOW**
-- **DENY**
-- **ESCALATE**
-- **CONSTRAIN**
+- **ALLOW** — execution is authorized as proposed
+- **DENY** — execution is not authorized
+- **ESCALATE** — execution requires secondary review
+- **CONSTRAIN** — execution is authorized within explicit limits
 
-Each outcome MUST include:
-- Decision identifier
-- Rationale reference
-- Validity window
+A DCP response **MUST** include:
+- A unique decision identifier
+- A reference to the applied rationale or policy
+- A validity window defining how long the decision applies
+
+Execution **MUST NOT** occur outside the bounds of the returned decision.
+
+---
+
+## 6. Informative Notes (Non-Normative)
+
+The following guidance is informative and does not define protocol
+requirements.
+
+- DCP may be implemented synchronously or asynchronously
+- Decision caching strategies are implementation-specific
+- Policy engines may vary across domains and organizations
