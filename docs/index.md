@@ -2,7 +2,6 @@
   <img src="DCP Logo.png" alt="Decision Context Protocol Logo" width="220"/>
 </p>
 
-
 # Decision Context Protocol (DCP)
 
 Decision Context Protocol (DCP) is a system-level protocol for governing
