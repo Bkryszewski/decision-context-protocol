@@ -2,15 +2,26 @@
 
 <img src="DCP Logo.png" alt="Decision Context Protocol Logo" width="160"/>
 
-<br/>
-
 <em>Governing autonomous agent decisions prior to execution</em>
 
 </div>
 
-
 # Decision Context Protocol (DCP)
 
+<div align="center">
+
+[Specification](specification.md) ·
+[Architecture](architecture.md) ·
+[Examples](examples.md) ·
+[Governance](governance.md)
+
+</div>
+
+<div align="center">
+
+**Status:** Draft v0.1
+
+</div>
 
 Decision Context Protocol (DCP) is a system-level protocol for governing
 autonomous agent decisions prior to execution.
