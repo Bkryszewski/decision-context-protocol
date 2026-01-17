@@ -260,7 +260,7 @@ Example request:
   }
 }
 ```
-markdown
+
 ## Step 4 — Evaluate Policy and Context
 
 Within the DCP evaluation endpoint:
@@ -301,7 +301,6 @@ Example response:
   "valid_until": "2026-01-18T18:30:00Z"
 }
 ```
-markdown
 
 ##Execution MUST NOT proceed without a valid decision.
 
