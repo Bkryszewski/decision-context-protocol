@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bkryszewski.github.io/decision-context-protocol/v1/decision-record.schema.json",
+  "title": "Decision Context Protocol v1 - Decision Record",
+  "type": "object",
+  "required": [
+    "decision_id",
+    "request",
+    "response",
+    "timestamp",
+    "policy_version"
+  ],
+  "properties": {
+    "decision_id": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "policy_version": {
+      "type": "string",
+      "description": "Identifier of the policy set used for evaluation"
+    },
+    "request": {
+      "$ref": "./dcp-request.schema.json"
+    },
+    "response": {
+      "$ref": "./dcp-response.schema.json"
+    }
+  },
+  "additionalProperties": false
+}
