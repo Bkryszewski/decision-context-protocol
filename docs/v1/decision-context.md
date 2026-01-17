@@ -91,3 +91,15 @@ requirements.
 - DCP may be implemented synchronously or asynchronously
 - Decision caching strategies are implementation-specific
 - Policy engines may vary across domains and organizations
+
+## Schema Artifacts
+
+The normative JSON schemas for this specification are defined in:
+
+- [DCP Request Schema](dcp-request.schema.json)
+- [DCP Response Schema](dcp-response.schema.json)
+- [Decision Record Schema](decision-record.schema.json)
+
+Conforming implementations **MUST** produce and consume messages that
+validate against these schemas.
+
