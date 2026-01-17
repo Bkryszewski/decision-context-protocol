@@ -1,3 +1,5 @@
+
+# DCP Core Specification
 <div align="center">
 
 [Home](index.md) ·
@@ -8,8 +10,6 @@
 [Governance](governance.md)
 
 </div>
-
-# DCP Core Specification
 
 Decision Context Protocol defines a system-level interaction for
 evaluating autonomous intent prior to execution.
