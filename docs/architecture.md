@@ -17,55 +17,11 @@
 **Figure 1** illustrates the architectural position of Decision Context Protocol (DCP)
 within an enterprise agentic system.
 
-+-----------------------------------------------------+
-|                 Agent Reasoning Layer                |
-|  (goal formation, planning, reflection, intent gen) |
-+---------------------------+-------------------------+
-                            |
-                            | Proposed Action
-                            v
-+-----------------------------------------------------+
-|            Decision Context Protocol (DCP)           |
-|  (policy evaluation, context, risk, delegation)     |
-+---------------------------+-------------------------+
-                            |
-                            | Authorized Decision
-                            v
-+-----------------------------------------------------+
-|        Invocation Layer (MCP or equivalent)          |
-|  (tool discovery, invocation, execution mechanics) |
-+---------------------------+-------------------------+
-                            |
-                            v
-+-----------------------------------------------------+
-|              System of Record / Execution            |
-|  (state mutation, compliance ownership)             |
-+-----------------------------------------------------+
-
-**Figure 1 — DCP within a layered enterprise architecture.**  
-Agents generate autonomous intent but do not directly execute actions.
-DCP evaluates whether execution is permitted in context, prior to invocation.
-Tool invocation protocols such as MCP are only engaged after authorization
-has been granted by the system that owns execution authority.
 
 ## Decision Evaluation Sequence
 
-**Figure 2** shows the runtime interaction between an agent and a system
-using DCP prior to execution.
-Agent            DCP Interface          System of Record
-  |                     |                        |
-  | Form intent          |                        |
-  |-------------------->|                        |
-  |                     | Evaluate context       |
-  |                     | policy, risk, identity |
-  |                     |---------------------->|
-  |                     |                        |
-  |                     | Decision outcome       |
-  |                     |<----------------------|
-  | Receive decision    |                        |
-  |<--------------------|                        |
-  |                     |                        |
-  | If allowed, invoke tool via MCP               |
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/ec83a994-608b-47ec-8d83-5116592ef783" />
+
 
   **Figure 2 — Pre-execution decision evaluation flow.**  
 DCP introduces an explicit evaluation step prior to execution.
@@ -74,18 +30,7 @@ system-of-record ownership and enabling auditable decision records.
 
 ## Decision Outcome Model
 
-**Figure 3** represents the possible outcomes of a DCP evaluation.
-              +-----------+
-              |  PROPOSE  |
-              +-----------+
-                     |
-                     v
-        +---------+  +-----------+  +------------+  +-------------+
-        |  ALLOW  |  |   DENY    |  |  ESCALATE  |  |  CONSTRAIN  |
-        +---------+  +-----------+  +------------+  +-------------+
-            |              |              |                 |
-            v              v              v                 v
-       Execute        No execution   Secondary review   Execute within limits
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/d62c3590-428c-4916-9cae-8cfc45fc937c" />
 
 **Figure 3 — DCP decision outcomes.**  
 DCP evaluations return declarative outcomes that determine execution
