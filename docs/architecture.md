@@ -51,6 +51,11 @@ DCP failure handling ensures deterministic behavior under degraded conditions, p
 **Figure 5 - Organizational Ownership & Control Plane View
 DCP establishes a system-owned decision control plane that governs autonomous action across enterprise execution surfaces.
 
+## Cloud Agnostic 
+
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/859b288f-7a62-442e-ade7-77c9718f6f8e" />
+
+
 
 
 
