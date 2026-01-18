@@ -51,10 +51,45 @@ DCP failure handling ensures deterministic behavior under degraded conditions, p
 **Figure 5 - Organizational Ownership & Control Plane View
 DCP establishes a system-owned decision control plane that governs autonomous action across enterprise execution surfaces.
 
-## Cloud Agnostic 
+## Cloud Agnostic Acceptance Model
 
 <img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/859b288f-7a62-442e-ade7-77c9718f6f8e" />
 
+**Figure X.** Cloud-agnostic Decision Context Protocol (DCP) architecture.
+DCP functions as a system-owned decision authority that evaluates intent,
+policy, and risk *before* execution occurs across heterogeneous cloud platforms.
+
+---
+
+## Architectural Interpretation
+
+### Decision Authority (System-Owned)
+- Centralized, policy-driven evaluation
+- Independent of cloud provider implementation
+- Enforces explicit ALLOW, DENY, ESCALATE, or CONSTRAIN outcomes
+
+### Execution Authority (Service-Owned)
+- Cloud-native services remain unchanged
+- Azure, AWS, and GCP execute only after authorization
+- No implicit permissions are granted by model or tool access
+
+### Model Has No Implicit Permission
+- Models and agents may propose actions
+- They do **not** inherit execution rights
+- All authority is explicitly delegated via DCP
+
+---
+
+## Why This Matters
+
+This architecture enables:
+- **Cloud portability without governance drift**
+- **Enterprise-grade auditability**
+- **Clear ownership boundaries between AI and systems of record**
+- **Consistent AgentOps controls across multi-cloud environments**
+
+DCP allows organizations to scale autonomous systems without surrendering
+control to models, tools, or vendors.
 
 
 
