@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="DCP Logo.png" alt="Decision Context Protocol Logo" width="160"/>
+<img src="DCP Logo.png" alt="Decision Context Protocol Logo" width="80"/>
 
 <em>Governing autonomous agent decisions prior to execution</em>
 
