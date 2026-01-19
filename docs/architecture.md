@@ -9,6 +9,59 @@
 
 </div>
 
+# Architecture
+
+This document describes the architectural placement and structural role of the Decision Context Protocol (DCP) within agentic and distributed systems.
+
+DCP is a **system-level decision layer** that evaluates autonomous intent prior to execution. It is not an agent framework, an orchestration engine, or an execution mechanism. Instead, DCP defines a standardized decision boundary between intent formation and action execution.
+
+The architecture described here is intentionally **layered**. Each layer has a distinct responsibility, enabling autonomy to scale while preserving system ownership, accountability, and auditability.
+
+---
+
+## Architectural Scope
+
+This document focuses on:
+- Where DCP sits within a system
+- How DCP interacts with agents and execution layers
+- The separation of decision authority from execution mechanics
+
+This document does **not** define:
+- Agent reasoning or planning models
+- Business policy semantics
+- Tool invocation protocols
+- Organizational structures
+
+Implementation-specific details are covered in the Implementer’s Guide.
+
+---
+
+## Architectural Principles
+
+The architecture of DCP is guided by the following principles:
+
+1. **Decision Authority Is System-Owned**  
+   Authorization decisions are owned by the system of record, not by agents or models.
+
+2. **Intent and Execution Are Decoupled**  
+   Agents may propose actions, but execution occurs only after an explicit decision is returned.
+
+3. **Governance Is Enforced at Runtime**  
+   Policy, risk, and contextual constraints are evaluated at the moment of execution, not inferred from access.
+
+4. **Execution Mechanisms Are Pluggable**  
+   DCP is independent of execution tooling. Systems may enforce decisions via MCP, API management gateways, or direct APIs.
+
+5. **Auditability Is a First-Class Requirement**  
+   Decisions are recorded as durable artifacts, enabling traceability and post-hoc analysis.
+
+---
+
+## Layered Architecture Overview
+
+The following sections describe the layered architecture in which DCP operates, beginning with intent formation and ending with authorized execution.
+
+
 ## Layered Architecture
 
 <img width="956" height="506" alt="image" src="https://github.com/user-attachments/assets/804329f9-1685-470c-9503-86788d23d966" />
